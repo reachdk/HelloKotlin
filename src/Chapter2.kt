@@ -1,8 +1,31 @@
+import kotlin.random.Random
+
 fun main(){
     println("What's the weather like today?")
     val mood: String? = readLine()
     println(whatShouldIDoToday(mood))
+    println(rollDice)
+    println("Gimme a number: ")
+    val sides: String = readLine().toString()
+    println(rollDice1(sides.toInt()))
+    println(rollDice2(sides.toInt()))
+    println("Gimme another number: ")
+    val rand: String = readLine().toString()
+    gameplay(rollDice2(rand.toInt()))
 }
+
+//====== Roll Dice exercise ======
+
+val rollDice = { Random.nextInt(12) + 1}
+val rollDice1 = { sides: Int -> if (sides == 0) 0 else Random.nextInt(sides) + 1}
+val rollDice2: (Int) -> Int = { sides: Int -> if (sides == 0) 0 else Random.nextInt(sides) + 1}
+
+fun gameplay(diceRoll: Int) {
+    //do something with the dice roll
+    println(diceRoll)
+}
+
+// what should I do today?
 
 fun whatShouldIDoToday(mood: String?, weather: String = "sunny", temp: Int = 24):String {
     fun surfing(mood:String?, weather: String) = mood == "happy" && weather == "sunny"
@@ -20,3 +43,4 @@ fun whatShouldIDoToday(mood: String?, weather: String = "sunny", temp: Int = 24)
         })
 
 }
+

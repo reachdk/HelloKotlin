@@ -1,3 +1,5 @@
+import java.lang.Math.random
+
 fun main(args: Array<String>) {
     var fortune: String = ""
     while (!fortune.contains("Take it easy")) {
@@ -24,3 +26,4 @@ fun getFortune(birthday: Int): String {
 
     return fortunes[birthday.rem(fortunes.size)]
 }
+
